@@ -50,6 +50,12 @@ useEffect( () => {
           }
         </div>
           <svg viewBox='0 0 256 256' style={{width:"500px"}}>
+          <defs>
+            <filter id = "filter">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -15" result="filter" />
+            </filter>
+          </defs>
             <g>
               {
                 svgnumbers.map((path,i)=>{
