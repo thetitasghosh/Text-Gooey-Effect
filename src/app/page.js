@@ -55,49 +55,22 @@ const Home = () => {
             );
           })}
         </div>
-        <svg viewBox="0 0 256 256" style={{ width: "500px" }}>
-          <defs>
-            <filter id="filter">
-              <feGaussianBlur
-                in="SourceAlpha"
-                stdDeviation="20"
-                result="blur"
-              />
-
-              <feColorMatrix
-                in="blur"
-                mode="matrix"
-                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -15"
-                result="filter"
-              />
-            </filter>
-          </defs>
-          <g>
-            {svgnumbers.map((path, i) => {
-              return (
-                <path
-                  style={{ display: "none" }}
-                  key={`p_${i}`}
-                  ref={(ref) => (paths.current[i] = ref)}
-                  d={path}
-                />
-              );
-            })}
-          </g>
-          <g>
-            {[...Array(nbOfCircles)].map((_, i) => {
-              return (
-                <circle
-                  key={`c_${i}`}
-                  cx="128"
-                  cy="128"
-                  ref={(ref) => (circles.current[i] = ref)}
-                  r={radius}
-                ></circle>
-              );
-            })}
-          </g>
-        </svg>
+          <svg viewBox='0 0 256 256' style={{width:"500px"}}>
+            <g>
+              {
+                svgnumbers.map((path,i)=>{
+                  return <path style={{display:"none"}} key={`p_${i}`} ref={ref => paths.current[i] = ref} d={path} />
+                })
+              }
+            </g>
+            <g>
+              {
+                [...Array(nbOfCircles)].map((_,i)=>{
+                    return <circle key={`c_${i}`} cx="128" cy="128" ref={ref => circles.current[i] = ref } r={radius}></circle>
+                })
+              }
+            </g>
+          </svg>
       </main>
     </>
   );
