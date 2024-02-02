@@ -17,7 +17,8 @@
 
 body {
   color: rgb(var(--text-color));
-  background: var(--foreground-rgb)
+  background: var(--foreground-rgb);
+  overflow: hidden;
 }
 
 @layer utilities {
